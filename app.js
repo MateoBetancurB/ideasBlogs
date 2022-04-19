@@ -12,15 +12,28 @@ function eventListeners() {
 //funciones
 function agregarIdea(e) {
 	e.preventDefault();
+
 	//textarea donde usuario escribe
 	const idea = document.querySelector("#textArea").value;
 
 	//validación
 	if (idea === "") {
-		mostrarError("Una idea no puede ser vacía");
+		mostrarError("Escribe un mensaje válido");
 		return; //evita que se ejecuten más líneas de código
 	}
-	console.log("agregando idea...");
+	const ideaObj = {
+		id: Date.now(),
+		idea,
+	};
+
+	//añadir al arreglo de ideas
+	ideas = [...ideas, ideaObj];
+
+	//crear html con las ideas escritas por el usuarios
+	crearHTML();
+
+	//reiniciar el formulario
+	formulario.reset();
 }
 
 //mostrar mensaje de error
@@ -37,4 +50,28 @@ function mostrarError(error) {
 	setTimeout(() => {
 		mensajeError.remove();
 	}, 3000);
+}
+
+//muestra un listado de las ideas
+function crearHTML() {
+	limpiarHTML();
+	if (ideas.length > 0) {
+		ideas.forEach((idea) => {
+			//crea el html
+			const li = document.createElement("li");
+
+			//añadir el texto
+			li.innerText = idea.idea;
+
+			//insertarlo en html
+			listaIdeas.appendChild(li);
+		});
+	}
+}
+
+//limpiar para el html
+function limpiarHTML() {
+	while (listaIdeas.firstChild) {
+		listaIdeas.removeChild(listaIdeas.firstChild);
+	}
 }
