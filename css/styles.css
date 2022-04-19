@@ -1,0 +1,43 @@
+body {
+	font-family: sans-serif;
+	background-color: rgba(224, 224, 224, 0.545);
+}
+h1,
+h2 {
+	text-align: center;
+	margin-top: 0;
+}
+h1 {
+	font-size: 30px;
+	font-weight: bold;
+}
+h2,
+label {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#contenido {
+	margin-top: 40px;
+}
+.borrar-tweet,
+.borrar-tweet:hover {
+	float: right;
+	cursor: pointer;
+	color: red;
+	font-weight: bold;
+}
+
+.error {
+	background-color: red;
+	text-align: center;
+	padding: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	max-width: 400px;
+	margin: 0 auto;
+	color: white;
+}
+.owner {
+	display: none;
+}
