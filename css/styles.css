@@ -20,8 +20,8 @@ label {
 #contenido {
 	margin-top: 40px;
 }
-.borrar-tweet,
-.borrar-tweet:hover {
+.borrar-idea,
+.borrar-idea:hover {
 	float: right;
 	cursor: pointer;
 	color: red;
