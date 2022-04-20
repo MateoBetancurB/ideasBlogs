@@ -1,2 +1,2 @@
 # ideasBlogs
-url de proyecto: https://ideas-blogs.netlify.app/
+url de proyecto: https://ideas-blog.netlify.app/
