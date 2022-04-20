@@ -5,8 +5,16 @@ let ideas = [];
 
 //eventos
 eventListeners();
+//cuando el usuario agrega una nueva idea
 function eventListeners() {
 	formulario.addEventListener("submit", agregarIdea);
+
+	//cuando el documento está listo
+	document.addEventListener("DOMContentLoaded", () => {
+		ideas = JSON.parse(localStorage.getItem("ideas")) || [];
+		console.log(ideas);
+		crearHTML();
+	});
 }
 
 //funciones
@@ -16,7 +24,7 @@ function agregarIdea(e) {
 	//textarea donde usuario escribe
 	const idea = document.querySelector("#textArea").value;
 
-	//validación
+	//validación campo vacío
 	if (idea === "") {
 		mostrarError("Escribe un mensaje válido");
 		return; //evita que se ejecuten más líneas de código
@@ -67,9 +75,15 @@ function crearHTML() {
 			listaIdeas.appendChild(li);
 		});
 	}
+	sincronizarStorage();
 }
 
-//limpiar para el html
+//agregar ideas a local storage
+function sincronizarStorage() {
+	localStorage.setItem("ideas", JSON.stringify(ideas));
+}
+
+//limpiar el html
 function limpiarHTML() {
 	while (listaIdeas.firstChild) {
 		listaIdeas.removeChild(listaIdeas.firstChild);
