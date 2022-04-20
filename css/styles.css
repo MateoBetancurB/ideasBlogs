@@ -29,15 +29,19 @@ label {
 }
 
 .error {
-	background-color: red;
+	background-color: #e5383b;
+	border-radius: 12px;
 	text-align: center;
 	padding: 10px;
-	text-transform: uppercase;
 	font-weight: bold;
 	max-width: 400px;
 	margin: 0 auto;
 	color: white;
 }
 .owner {
-	display: none;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+	text-decoration: underline;
+	margin-top: 20px;
 }
