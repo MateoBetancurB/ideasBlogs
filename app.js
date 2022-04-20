@@ -65,17 +65,36 @@ function crearHTML() {
 	limpiarHTML();
 	if (ideas.length > 0) {
 		ideas.forEach((idea) => {
+			//agrega botón eliminar idea
+			const btnEliminar = document.createElement("a");
+			btnEliminar.classList.add("borrar-idea");
+			btnEliminar.innerText = "X";
+
+			//añadir función de eliminar idea
+			btnEliminar.onclick = () => {
+				borrarIdea(idea.id);
+			};
+
 			//crea el html
 			const li = document.createElement("li");
 
 			//añadir el texto
 			li.innerText = idea.idea;
 
+			//asignar el botón
+			li.appendChild(btnEliminar);
+
 			//insertarlo en html
 			listaIdeas.appendChild(li);
 		});
 	}
 	sincronizarStorage();
+}
+
+//eliminar idea del DOM
+function borrarIdea(id) {
+	ideas = ideas.filter((idea) => idea.id !== id);
+	crearHTML();
 }
 
 //agregar ideas a local storage
